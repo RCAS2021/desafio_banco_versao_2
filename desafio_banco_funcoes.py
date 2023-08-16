@@ -1,5 +1,4 @@
 def criar_usuario(*, contas_usuarios):
-
     cpf = input("Digite seu CPF: ")
     for conta_usuario in contas_usuarios:
         if conta_usuario["cpf"] == cpf:
@@ -45,11 +44,12 @@ def deletar_conta(*, contas_banco):
     for contas in contas_banco:
         if conta_deletar == contas['numero_conta']:
             contas['contas_usuarios'] = None
-            contas['numero_conta'] = [None]
-            contas['agencia'] = [None]
-        else:
-            print("Conta não encontrada!")
+            contas['numero_conta'] = None
+            contas['agencia'] = None
+            print(f"Número da conta deletada: {deletar_conta}")
             return
+    print("Conta não encontrada!")
+
 
 def depositar(saldo, extrato, /):
     deposito = float(input("\nDigite a quantidade a depositar: "))
